@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 灵丘五中表白墙</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+    (function(w, d, s, q, i) {
+    w[q] = w[q] || [];
+    var f = d.getElementsByTagName(s)[0],j = d.createElement(s);
+    j.async = true;
+    j.id = 'beacon-aplus';
+    j.src = 'https://d.alicdn.com/alilog/mlog/aplus/' + i + '.js';
+    f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'aplus_queue', '203467608');
+
+    //集成应用的appKey
+    aplus_queue.push({
+      action: 'aplus.setMetaInfo',
+      arguments: ['appKey', '6921857a8560e34872f13fd2']
+    });
+    /************************以下内容为可选配置内容****************************/
+    //sdk提供手动pv发送机制，启用手动pv(即关闭自动pv)，需设置aplus-waiting=MAN;
+    //注意：由于单页面路由改变时不会刷新页面，无法自动发送pv，所以对于单页应用，强烈建议您关闭自动PV, 手动控制PV事件
+    aplus_queue.push({
+      action: 'aplus.setMetaInfo',
+      arguments: ['aplus-waiting', 'MAN']
+    });
+    //是否开启调试模式 
+    aplus_queue.push({
+      action: 'aplus.setMetaInfo',
+      arguments: ['DEBUG', true]
+    });
+    //是否指定用作计算umid的id类型，默认为cnaid，目前支持:
+    //1. 微信和QQ: openid; 字节和百度 anonymousid; 支付宝 alipay_id
+    //2. 微信、QQ、字节、百度平台的 unionid
+    //3. 业务方自己生成的随机id uuid
+     aplus_queue.push({
+      action: 'aplus.setMetaInfo',
+      arguments: ['aplus-idtype', 'xxxx'] //取值参考见附表1
+    });
+    /******************************************************************/
+    </script>
+    <style>
+        body {
+            background-color: #0f1724;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(124, 77, 255, 0.05) 0%, transparent 20%);
+            color: #e0e0e0;
+        }
+        
+        .card {
+            background: rgba(16, 23, 42, 0.8);
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, #00e5ff, #00b8d4) !important;
+            border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+        }
+        
+        .form-label {
+            color: #e0e0e0;
+        }
+        
+        .form-control {
+            background: rgba(16, 23, 42, 0.6);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            color: #e0e0e0;
+        }
+        
+        .form-control:focus {
+            background: rgba(16, 23, 42, 0.8);
+            border-color: #00e5ff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 229, 255, 0.25);
+            color: #fff;
+        }
+        
+        a {
+            color: #00e5ff;
+        }
+        
+        a:hover {
+            color: #00b8d4;
+        }
+        .bg-grid {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+        z-index: -1;
+        animation: gridMove 20s linear infinite;
+    }
+    
+    @keyframes gridMove {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 20px 20px;
+        }
+    }
+    
+    /* 粒子效果容器 */
+    .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-header text-white text-center">
+                        <h4><i class="bi bi-heart-fill"></i> 灵丘五中表白墙</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-center mb-4 text-white">用户登录</h5>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">用户名</label>
+                                <input type="text" class="form-control" id="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">密码</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <div id="loginError" class="alert alert-danger d-none"></div>
+                            <button type="submit" class="btn btn-primary w-100">登录</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

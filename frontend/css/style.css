@@ -1,0 +1,218 @@
+/* 全局科技感样式 */
+:root {
+    --primary-gradient: linear-gradient(135deg, #0d47a1, #1565c0);
+    --accent-gradient: linear-gradient(135deg, #ff4081, #f50057);
+    --tech-dark: #0a0e17;
+    --tech-blue: #00e5ff;
+    --tech-purple: #7c4dff;
+    --neon-glow: 0 0 5px var(--tech-blue), 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+body {
+    background-color: #0f1724;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(124, 77, 255, 0.05) 0%, transparent 20%);
+    font-family: 'Segoe UI', 'Roboto', 'Microsoft YaHei', sans-serif;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+/* 导航栏科技感样式 */
+.navbar {
+    background: var(--tech-dark) !important;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: var(--neon-glow);
+}
+
+/* 卡片科技感样式 */
+.card {
+    background: rgba(16, 23, 42, 0.8);
+    border: 1px solid rgba(0, 229, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1), transparent);
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 229, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15);
+}
+
+.confession-card {
+    border-left: 3px solid var(--tech-blue);
+}
+
+/* 标题样式 */
+h3 {
+    background: linear-gradient(90deg, #00e5ff, #7c4dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+h3::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #00e5ff, #7c4dff);
+    margin: 10px auto;
+    border-radius: 1px;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background: linear-gradient(90deg, #00e5ff, #00b8d4);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #00b8d4, #00e5ff);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(90deg, #ff5252, #ff1744);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(90deg, #ff1744, #ff5252);
+    box-shadow: 0 0 10px rgba(255, 23, 68, 0.4);
+}
+
+/* 新增的操作按钮样式 */
+.like-btn, .favorite-btn, .report-btn {
+    transition: all 0.2s ease;
+    color: #666;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.like-btn:hover, .favorite-btn:hover, .report-btn:hover {
+    transform: scale(1.1);
+}
+
+.like-btn:hover {
+    color: #ff4081;
+    border-color: #ff4081;
+}
+
+.favorite-btn:hover {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+
+.report-btn:hover {
+    color: #f44336;
+    border-color: #f44336;
+}
+
+.liked {
+    color: #ff4081 !important;
+    border-color: #ff4081 !important;
+    text-shadow: 0 0 5px rgba(255, 64, 129, 0.3);
+}
+
+.favorited {
+    color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    text-shadow: 0 0 5px rgba(255, 193, 7, 0.3);
+}
+
+.reported {
+    color: #f44336 !important;
+    border-color: #f44336 !important;
+    text-shadow: 0 0 5px rgba(244, 67, 54, 0.3);
+}
+
+/* 输入框样式 */
+.form-control {
+    background: rgba(16, 23, 42, 0.6);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    color: #e0e0e0;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    background: rgba(16, 23, 42, 0.8);
+    border-color: #00e5ff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 229, 255, 0.25);
+    color: #fff;
+}
+
+/* 发布卡片样式 */
+#postCard {
+    background: rgba(16, 23, 42, 0.9);
+    border-color: rgba(124, 77, 255, 0.2);
+}
+
+#postCard .card-title {
+    color: #00e5ff;
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
+}
+
+/* 评论区样式 */
+.comments-section {
+    border-top: 1px solid rgba(0, 229, 255, 0.1);
+}
+
+.comment-item {
+    border-bottom: 1px solid rgba(0, 229, 255, 0.05);
+}
+
+.comment-author {
+    color: #00e5ff;
+    font-weight: 600;
+}
+
+/* 加载动画 */
+.spinner-border {
+    border-color: rgba(0, 229, 255, 0.2);
+    border-right-color: #00e5ff;
+}
+
+/* 匿名标签 */
+.badge.bg-secondary {
+    background: linear-gradient(90deg, #7c4dff, #6200ea) !important;
+    border: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}
